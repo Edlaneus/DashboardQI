@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="<?php echo base_url(); ?>"></base>
+    <base href="<?php echo base_url(); ?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,7 @@
 
         <!-- Base Css Files -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
 
         <!-- Font Icons -->
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />

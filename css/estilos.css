@@ -1,0 +1,35 @@
+.menudes a {
+border-right: 2px solid #fff;
+position: relative;
+z-index: 2;
+}
+.menudes a:last-child {
+border-right:2px solid transparent;
+}
+.marca {
+box-sizing: border-box;
+position: absolute;
+bottom: 0;
+left: -30%;
+width: 25%;
+height: 40px;
+background: #fff;
+opacity:.5;
+transition: 0.5s ease-in-out;
+z-index: 1;
+}
+.menudes a:hover ~ .marca2 {
+margin-left: -1px;
+}
+.menudes a:nth-child(1):hover ~ .marca {
+left: 0%;
+}
+.menudes a:nth-child(2):hover ~ .marca {
+left: 25%; /* 1/4 del ancho total */
+}
+.menudes a:nth-child(3):hover ~ .marca {
+left: 50%; /* 2/4 del ancho total */
+}
+.menudes a:nth-child(4):hover ~ .marca {
+left: 75%; /* 3/4 del ancho total */
+}

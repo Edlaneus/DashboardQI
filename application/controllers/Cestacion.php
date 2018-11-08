@@ -98,6 +98,21 @@ class Cestacion extends CI_Controller {
         } 
 	}
 
+
+
+	function getArticulos($categoria){
+		$this->session->set_userdata('categoria',$categoria);   // Almacenamos la categoria seleccionada en 
+                                                                // la variable de sesion: categoria
+
+		$articulos = $this->mdash->getArticulos($categoria); // Obtenemos todos los articulo de la categoria
+        $data['articulos']=$articulos;
+
+		$this->load->view('assets/header');
+		$this->load->view('assets/nav_bar');
+		$this->load->view('Productos',$data); // Pasamos los articulo encontrados a la vista: galeria
+		$this->load->view('assets/footer');
+	}
+
 	function altes(){
 
 				$this->load->view('assets/header');
@@ -128,7 +143,7 @@ class Cestacion extends CI_Controller {
 			$datos['Descripción']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
 			
-			move_uploaded_file($_FILES['img']['tmp_name'], 'images/'.$_FILES['img']['name']);
+			move_uploaded_file($_FILES['$img']['tmp_name'], 'images/'.$_FILES['$img']['name']);
 
 		    $this->mdash->agregaproducto($datos);
 		    $this->load->view('assets/header');
@@ -243,76 +258,88 @@ class Cestacion extends CI_Controller {
 //----------------------------------------------------------------------------------------------------------------------------	
 //----------------------------------------------------------------------------------------------------------------------------	
 //----------------------------------------------------------------------------------------------------------------------------
-//Funciones de Promociones
-	function hora(){
+//Funciones de Cursos
+	function cursos(){
 
 				$this->load->view('assets/header');
 				$this->load->view('assets/nav_bar');
-				$this->load->view('altahorario');
+				$this->load->view('altacurso');
 				$this->load->view('assets/footer');  
 	}
 
+// BD Campos						altacurso Campos
+// id_curso						
+// nombre_curso						nom
+// descripcion_curso					des
+// finicio_curso						finicio			
+// ffinal_curso						ffinal
+// cupos_curso						cupos
 
-	function addhora(){
-		$this->form_validation->set_rules('cat', 'Categoria', 'required');
-		$this->form_validation->set_rules('nom', 'Nombre', 'required');
-		$this->form_validation->set_rules('dia', 'Dia', 'required');
-		$this->form_validation->set_rules('hora', 'Hora', 'required');
+	function addcurso(){
+		$this->form_validation->set_rules('nom', 'nombre_curso', 'required');
+		$this->form_validation->set_rules('des', 'descripcion_curso', 'required');
+		$this->form_validation->set_rules('finicio', 'finicio_curso', 'required');
+		$this->form_validation->set_rules('ffinal', 'ffinal_curso', 'required');
+		$this->form_validation->set_rules('cupos', 'cupos_curso', 'required');
 
         if ($this->form_validation->run() == FALSE)
         {
                 		 
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('altahorario');
+			$this->load->view('altacurso');
 			$this->load->view('assets/footer');  
         }
         else
         {
-			$datos['Categoria']=$this->input->post("cat");
-			$datos['Nombre']=$this->input->post("nom");
-			$datos['Dia']=$this->input->post("dia");
-			$datos['Hora']=$this->input->post("hora");
+			$datos['nombre_curso']=$this->input->post("nom");
+			$datos['descripcion_curso']=$this->input->post("des");
+			$datos['finicio_curso']=$this->input->post("finicio");
+			$datos['ffinal_curso']=$this->input->post("ffinal");
+			$datos['cupos_curso']=$this->input->post("cupos");
 			
 
-		    $this->mdash->agregahora($datos);
+		    $this->mdash->agregacurso($datos);
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('altahorario');
+			$this->load->view('altacurso');
 			$this->load->view('assets/footer');  
 	    }
 	}
 
-	function listahora(){
-		$datos['horarios'] = $this->mdash->gethoras();
+	function listacursos(){
+		$datos['cursos'] = $this->mdash->getcursos();
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('horario',$datos); 
+			$this->load->view('cursos',$datos); 
 			$this->load->view('assets/footer');  
 	}	
 	
-	function edithora($id){
-		$datos['horarios'] = $this->mdash->gethora($id);
+	function editcurso($id){
+		$datos['cursos'] = $this->mdash->getcurso($id);
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('edithorario',$datos); 
+			$this->load->view('editcurso',$datos); 
 			$this->load->view('assets/footer'); 
       
 	}	
 
-    function actualizahora(){
-        	$id = $this->input->post("IdHorario"); 
-			$datos['Nombre']=$this->input->post("name");
-			$datos['Hora']=$this->input->post("hora");
-			$datos['Dia']=$this->input->post("dia");
+    function actualizacurso(){
+        	$id_curso = $this->input->post("id_curso"); 
+			$datos['nombre_curso']=$this->input->post("nom");
+			$datos['descripcion_curso']=$this->input->post("des");
+			$datos['finicio_curso']=$this->input->post("finicio");
+			$datos['ffinal_curso']=$this->input->post("ffinal");
+			$datos['cupos_curso']=$this->input->post("cupos");
+			$datos['estado']=$this->input->post("est");
 
-	    $this->mdash->updatehora($datos,$id);    	
-	    $this->listahora();
+	    $this->mdash->updatecurso($datos,$id_curso);    	
+	    $this->listacursos();
     }
     
-	function deletehora($id){
-	    $this->mdash->delhora($id);	
-	    $this->listahora();		
+	function deletecurso($id){
+	    $this->mdash->delcurso($id);	
+	    $this->listacursos();		
 	}
 
 }

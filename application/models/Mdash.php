@@ -39,6 +39,14 @@
          		$this->db->insert('articulos', $datos);
      		}
 
+        function getArticulos($categoria)
+      {
+                $this->db->where('IdCategoria',$categoria);
+                $query = $this->db->get('articulos');
+
+                return $query->result_array();
+        }
+
      	  function getproductos()
      	  	{
       		  $query = $this->db->get('articulos');
@@ -95,34 +103,35 @@
 //-----------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------
-        /*--------------------------------------- Horarios------------------------------------------*/              
+        /*--------------------------------------- Cursos------------------------------------------*/              
 
-          function agregahora($datos)
+          function agregacurso($datos)
             {
-                $this->db->insert('horarios', $datos);
+                $this->db->insert('cursos', $datos);
                 echo "<script>alert('Agregado Correctamente, ¡Gracias!.');</script>";
             }
 
-          function gethoras()
+          function getcursos()
             {
-              $query = $this->db->get('horarios');
+              $query = $this->db->where('estado','1');
+              $query = $this->db->get('cursos');
               return $query->result_array();
             }       
-          function gethora($id){
-                $this->db->where('IdHorario',$id);
-                $query = $this->db->get('horarios');
+          function getcurso($id){
+                $this->db->where('id_curso',$id);
+                $query = $this->db->get('cursos');
 
                 return $query->result_array()[0];
             }
 
-          function updatehora($datos,$id){
-                $this->db->where('IdHorario',$id);        
-                $this->db->update('horarios', $datos);
+          function updatecurso($datos,$id_curso){
+                $this->db->where('id_curso',$id_curso);        
+                $this->db->update('cursos', $datos);
             }
      
-          function delhora($id){
-                $this->db->where('IdHorario',$id);
-                $this->db->delete('horarios');
+          function delcurso($id){
+                $this->db->where('id_curso',$id);
+                $this->db->delete('cursos');
             } 
  	}
  ?>

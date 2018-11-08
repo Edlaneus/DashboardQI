@@ -4,6 +4,5 @@
         <!-- CUSTOM JS -->
         <script src="js/jquery.app.js"></script>
 
-
 </body>
 </html>

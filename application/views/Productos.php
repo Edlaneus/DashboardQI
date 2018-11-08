@@ -12,6 +12,39 @@
                                 <h4 class="pull-left page-title">Productos</h4>
                             </div>
                         </div>
+<!--                         <ul class="portfolio text-center">
+                            <li><a class="btn btn-default" href="index.php/welcome/todospro">Productos</a></li>
+                            <li><a class="btn btn-default" href="index.php/Welcome/getArticulos/1">Arte</a></li>
+                            <li><a class="btn btn-default" href="index.php/Welcome/getArticulos/2">Arquitectura</a></li>
+                            <li><a class="btn btn-default" href="index.php/Welcome/getArticulos/3">Ilustraccion</a></li>
+                            <li><a class="btn btn-default" href="index.php/Welcome/getArticulos/4">Diseño</a></li>
+                            <li><a class="btn btn-default" href="index.php/Welcome/getArticulos/5">Basico</a></li>
+                        </ul> -->
+<!--                         <div class="menudes">
+                              <a href="">Inicio</a>
+                              <a href="">Portfolio</a>
+                              <a href="">Acerca de</a>
+                              <a href="">Contacto</a>
+                              <div class="marca"></div>
+                        </div> -->
+                        <div class="btn-group btn-group-justified" role="group">
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" onclick="location.href='index.php/Cestacion/getArticulos/1'">Arte</button>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" onclick="location.href='index.php/Cestacion/getArticulos/2'">Arquitectura</button>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" onclick="location.href='index.php/Cestacion/getArticulos/3'">Ilustración</button>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" onclick="location.href='index.php/Cestacion/getArticulos/4'">Diseño</button>
+                          </div>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" onclick="location.href='index.php/Cestacion/getArticulos/5'">Basico</button>
+                          </div>
+                        </div>
+                        <br>
                                 <a href="index.php/Cestacion/altes" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i>Agregar un nuevo Producto</a>
                         <div class="panel">
                             <div class="panel-body">

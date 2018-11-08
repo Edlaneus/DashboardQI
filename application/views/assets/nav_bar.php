@@ -35,7 +35,6 @@
             </div>
             <!-- Top Bar End -->
 
-w
             <!-- ========== Left Sidebar Start ========== -->
 
             <div class="left side-menu">
@@ -55,7 +54,7 @@ w
                                 <a href="index.php/Cestacion/listapromo" class="waves-effect"><i class="md md-view-list"></i><span> Promociones </span></a>
                             </li>
                             <li>
-                                <a href="index.php/Cestacion/listahora" class="waves-effect"><i class="md md-event"></i><span>Horarios</span></a>
+                                <a href="index.php/Cestacion/listacursos" class="waves-effect"><i class="md md-event"></i><span>Cursos</span></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
