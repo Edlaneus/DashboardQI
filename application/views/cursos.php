@@ -12,7 +12,7 @@
                                 <h4 class="pull-left page-title">Cursos</h4>
                             </div>
                         </div>
-                                <a href="index.php/Cestacion/cursos" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i> Crear Nuevo Curso</a>
+                        <a href="index.php/Cestacion/cursos" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i> Crear Nuevo Curso</a>
                         <div class="panel">
                             <div class="panel-body">
 
@@ -22,6 +22,7 @@
                                         <th>Descripción</th>
                                         <th>Fecha Inicio</th>
                                         <th>Fecha Termino</th>
+                                        <th>Hora</th>
                                         <th>Cupos Disponibles</th>
                                     </tr>
                                         <?php
@@ -31,12 +32,10 @@
                                                     <td><?php echo $cursos[$i]['descripcion_curso']; ?></td>
                                                     <td><?php echo $cursos[$i]['finicio_curso']; ?></td>
                                                     <td><?php echo $cursos[$i]['ffinal_curso']; ?></td>
+                                                    <td><?php echo $cursos[$i]['hora']; ?></td>
                                                     <td><?php echo $cursos[$i]['cupos_curso']; ?></td>
                                                     <td>
                                                         <a href="index.php/Cestacion/editcurso/<?php echo $cursos[$i]['id_curso']; ?> "><span title="Modificar Curso" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
-                                                     </td>
-                                                    <td>
-                                                        <a href="index.php/Cestacion/edithora/<?php echo $cursos[$i]['id_curso']; ?> "><span title="Remover Curso" class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a>               
                                                      </td> 
                                                      <td>
                                                         <a onclick="abre_modal($(this).attr('data-cursos'),$(this).attr('data'));" data-cursos="<?php echo $cursos[$i]['nombre_curso'] ?>" data="index.php/Cestacion/deletehora/<?php echo $cursos[$i]['id_curso'] ?>">

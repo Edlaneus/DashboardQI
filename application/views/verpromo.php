@@ -27,11 +27,11 @@
                                                      <td><img  class ="img-responsive img-thumbnail" src="<?php echo 'images/'.$promociones[$i]['Imagen']?>" style='width: 75px; height: 75px;margin:10px auto;display:block;'></td>
 
                                                     <td>
-                                                        <a href="index.php/Cestacion/editpromo/<?php echo $promociones[$i]['IdPromo']; ?> "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
+                                                        <a href="index.php/Cestacion/editpromo/<?php echo $promociones[$i]['IdPromo']; ?> "><span title="Modificar Promoción" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
                                                      </td> 
                                                      <td>
                                                         <a onclick="abre_modal($(this).attr('data-promociones'),$(this).attr('data'));" data-promociones="<?php echo $promociones[$i]['Nombre'] ?>" data="index.php/Cestacion/deletepromos/<?php echo $promociones[$i]['IdPromo'] ?>">
-                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                        <span title="Eliminar Promoción" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                                         </a>                
                                                      </td>           
                                                 </tr>

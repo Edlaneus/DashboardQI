@@ -142,13 +142,14 @@ class Cestacion extends CI_Controller {
 			$datos['Precio']=$this->input->post("precio");
 			$datos['Descripción']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['estado']=$this->input->post("est");
 			
 			move_uploaded_file($_FILES['$img']['tmp_name'], 'images/'.$_FILES['$img']['name']);
 
 		    $this->mdash->agregaproducto($datos);
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('altaproducto',array("mensaje"=>"Agregado correctamente"));
+			$this->load->view('Productos',array("mensaje"=>"Agregado correctamente"));
 			$this->load->view('assets/footer');  
 	    }
 	}
@@ -177,6 +178,7 @@ class Cestacion extends CI_Controller {
 			$datos['Precio']=$this->input->post("precio");
 			$datos['Descripción']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['estado']=$this->input->post("est");
 
 	    $this->mdash->updateproducto($datos,$id);    	
 	    $this->listaproductos();
@@ -267,19 +269,13 @@ class Cestacion extends CI_Controller {
 				$this->load->view('assets/footer');  
 	}
 
-// BD Campos						altacurso Campos
-// id_curso						
-// nombre_curso						nom
-// descripcion_curso					des
-// finicio_curso						finicio			
-// ffinal_curso						ffinal
-// cupos_curso						cupos
 
 	function addcurso(){
 		$this->form_validation->set_rules('nom', 'nombre_curso', 'required');
 		$this->form_validation->set_rules('des', 'descripcion_curso', 'required');
 		$this->form_validation->set_rules('finicio', 'finicio_curso', 'required');
 		$this->form_validation->set_rules('ffinal', 'ffinal_curso', 'required');
+		$this->form_validation->set_rules('hora', 'hora', 'required');
 		$this->form_validation->set_rules('cupos', 'cupos_curso', 'required');
 
         if ($this->form_validation->run() == FALSE)
@@ -296,13 +292,15 @@ class Cestacion extends CI_Controller {
 			$datos['descripcion_curso']=$this->input->post("des");
 			$datos['finicio_curso']=$this->input->post("finicio");
 			$datos['ffinal_curso']=$this->input->post("ffinal");
+			$datos['hora']=$this->input->post("hora");
 			$datos['cupos_curso']=$this->input->post("cupos");
+			$datos['estado']=$this->input->post('est');
 			
 
 		    $this->mdash->agregacurso($datos);
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('altacurso');
+			$this->load->view('cursos');
 			$this->load->view('assets/footer');  
 	    }
 	}

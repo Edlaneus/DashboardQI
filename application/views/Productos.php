@@ -1,3 +1,6 @@
+<?php  $gpo = array("","Arte","Arquitectura","Ilustraccion","Diseño","Basico"); ?>
+<?php  $est = array("","No Disponible","Disponible"); ?>
+
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
@@ -45,32 +48,33 @@
                           </div>
                         </div>
                         <br>
-                                <a href="index.php/Cestacion/altes" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i>Agregar un nuevo Producto</a>
+                        <a href="index.php/Cestacion/altes" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i>Agregar un nuevo Producto</a>
                         <div class="panel">
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>IdCategoria</th>
+                                        <th>Categoria</th>
                                         <th>Precio</th>
                                         <th>Descripción</th>
                                         <th>Imagen</th>
+                                        <th>Estado</th>
                                     </tr>
                                         <?php
                                             for($i=0;$i<count($articulos);$i++){  ?>
                                                 <tr>
                                                     <td><?php echo $articulos[$i]['Nombre']; ?></td>
-                                                    <td><?php echo $articulos[$i]['IdCategoria']; ?></td>
+                                                    <td><?php echo $gpo[$articulos[$i]['IdCategoria']]; ?></td>
                                                     <td><?php echo $articulos[$i]['Precio']; ?></td>
                                                     <td><?php echo $articulos[$i]['Descripción']; ?></td>
                                                     <td><img  class ="img-responsive img-thumbnail" src="<?php echo 'images/'.$articulos[$i]['imagen']?>" style='width: 75px; height: 75px;margin:10px auto;display:block;'></td>
-
+                                                    <td><?php echo $est[$articulos[$i]['estado']]; ?></td>
                                                     <td>
-                                                        <a href="index.php/Cestacion/editproducto/<?php echo $articulos[$i]['idArticulo']; ?> "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
+                                                        <a href="index.php/Cestacion/editproducto/<?php echo $articulos[$i]['idArticulo']; ?> "><span title="Modificar Producto" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
                                                      </td> 
                                                      <td>
                                                         <a onclick="abre_modal($(this).attr('data-articulos'),$(this).attr('data'));" data-articulos="<?php echo $articulos[$i]['Nombre'] ?>" data="index.php/Cestacion/deleteproducto/<?php echo $articulos[$i]['idArticulo'] ?>">
-                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                        <span title="Eliminar Producto" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                                         </a>                
                                                      </td>           
                                                 </tr>

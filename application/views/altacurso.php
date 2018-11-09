@@ -58,11 +58,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
+                                                    <label for="dia" class="control-label col-lg-2">Hora</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="hora" name="hora" type="time">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
                                                     <label for="hora" class="control-label col-lg-2">Cupos Disponibles</label>
                                                     <div class="col-lg-10">
                                                         <input class="form-control " id="cupos" name="cupos" type="text">
                                                     </div>
-                                                </div>       
+                                                </div> 
+                                                <div class="form-group">
+                                                  <label for="gpo" class="col-sm-2 control-label">Estado del Curso</label>
+                                                <div class="col-sm-10">
+                                                    <select  class="form-control" id="est" name="est" >
+                                                      <option value="2">Seleccione un Estado</option>
+                                                      <option value="0">Inactivo</option>
+                                                      <option value="1">Activo</option>
+                                                   </select>
+                                                </div>
+                                                </div>      
                                             <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <button class="btn btn-success waves-effect waves-light" type="submit">Guardar</button>

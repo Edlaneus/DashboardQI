@@ -29,12 +29,19 @@
                                                         <input class=" form-control" id="nom" name="nom" type="text">
                                                     </div>
                                                 </div>
-                                                <div class="form-group ">
-                                                    <label for="idcat" class="control-label col-lg-2">IdCategoria</label>
-                                                    <div class="col-lg-10">
-                                                        <input class=" form-control" id="idcat" name="idcat" type="text">
-                                                    </div>
+                                                <div class="form-group">
+                                                  <label for="gpo" class="col-sm-2 control-label">Categoria</label>
+                                                <div class="col-sm-10">
+                                                    <select  class="form-control" id="est" name="est" >
+                                                      <option value="0">Seleccione una Categoria</option>
+                                                      <option value="1">Arte</option>
+                                                      <option value="2">Arquitectura</option>
+                                                      <option value="3">Ilustración</option>
+                                                      <option value="4">Diseño</option>
+                                                      <option value="5">Basico</option>
+                                                   </select>
                                                 </div>
+                                                </div> 
                                                 <div class="form-group ">
                                                     <label for="precio" class="control-label col-lg-2">Precio</label>
                                                     <div class="col-lg-10">
@@ -52,7 +59,17 @@
                                                     <div class="col-lg-10">
                                                         <input type="file" class="form-control " id="img" name="img">
                                                     </div>
-                                                </div>         
+                                                </div>
+                                                <div class="form-group">
+                                                  <label for="gpo" class="col-sm-2 control-label">Estado</label>
+                                                <div class="col-sm-10">
+                                                    <select  class="form-control" id="est" name="est" >
+                                                      <option value="2">Seleccione un Estado</option>
+                                                      <option value="0">Disponible</option>
+                                                      <option value="1">No Disponible</option>
+                                                   </select>
+                                                </div>
+                                                </div>          
                                             <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <button class="btn btn-success waves-effect waves-light" type="submit">Guardar</button>

@@ -33,14 +33,19 @@
                                          value="<?php echo $articulos['Nombre']; ?>">
                                   </div>
                                     </div>
-
-                                <div class="form-group">
-                                  <label for="idcat" class="col-sm-2 control-label">IdCategoria</label>
+                                  <div class="form-group">
+                                    <label for="gpo" class="col-sm-2 control-label">Categoria</label>
                                   <div class="col-sm-10">
-                                     <input type="text" class="form-control" id="idcat" name="nom" value="<?php echo $articulos['IdCategoria'] ?>">
+                                      <select  class="form-control" id="idcat" name="idcat" >
+                                        <option value="0" >Seleccione una Categoria</option>
+                                        <option value="1" <?php if($articulos['IdCategoria']==1) echo 'selected=true' ?>>Arte</option>
+                                        <option value="2" <?php if($articulos['IdCategoria']==2) echo 'selected=true' ?>>Arquitectura</option>
+                                        <option value="3" <?php if($articulos['IdCategoria']==3) echo 'selected=true' ?>>Ilustración</option>
+                                        <option value="4" <?php if($articulos['IdCategoria']==4) echo 'selected=true' ?>>Diseño</option>
+                                        <option value="5" <?php if($articulos['IdCategoria']==5) echo 'selected=true' ?>>Basico</option>
+                                     </select>
                                   </div>
-                                    </div>
-
+                                  </div> 
                                 <div class="form-group">
                                   <label for="precio" class="col-sm-2 control-label">Precio</label>
                                   <div class="col-sm-10">
@@ -54,7 +59,7 @@
                                      <input type="text" class="form-control" id="des" name="des" 
                                        value="<?php echo $articulos['Descripción'] ?>">
                                   </div>
-                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                   <label for="img" class="col-sm-2 control-label">imagen</label>
@@ -62,8 +67,17 @@
                                      <input type="text" class="form-control" id="img" name="img" 
                                        value="<?php echo $articulos['imagen'] ?>">
                                   </div>
-                                    </div>
-
+                                </div>
+                                <div class="form-group">
+                                  <label for="gpo" class="col-sm-2 control-label">Estado del Producto</label>
+                                <div class="col-sm-10">
+                                    <select  class="form-control" id="est" name="est" >
+                                      <option value="0">Seleccione un Estado</option>
+                                      <option value="1" <?php if($articulos['estado']==1) echo 'selected=true' ?>>No Disponible</option>
+                                      <option value="2" <?php if($articulos['estado']==2) echo 'selected=true' ?>>Disponible</option>
+                                   </select>
+                                </div>
+                                </div>
                                 <div class="col-sm-offset-2 col-sm-10">
                                   <button type="submit" class="btn btn-primary">Actualizar</button>
                                   <a href="index.php/Cestacion/listaproductos" class="btn btn-primary">Cancelar</a>
