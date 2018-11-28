@@ -9,7 +9,7 @@
                         <!-- Page-Title -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="pull-left page-title">Alta de Curso</h4>
+                                <h4 class="pull-left page-title">Alta de Proveedor</h4>
                             </div>
                         </div>
 
@@ -21,68 +21,45 @@
                                     <div class="panel-heading"><h3 class="panel-title">Ingresar Datos</h3></div>
                                     <div class="panel-body">
                                         <div class=" form">
-                                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" action="index.php/Cestacion/addcurso">
-<!--                                                 <div class="form-group">
-                                                    <label for="cat" class="col-sm-2 control-label">Categoria</label>
-                                                    <div class="col-sm-10">
-                                                         <select  class="form-control" id="cat" name="cat" >
-                                                             <option value="0">Seleccione una Categoria</option>
-                                                             <option value="1">Curso</option>
-                                                             <option value="2">Taller</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
+                                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" action="index.php/Cestacion/addproveedor">
                                                 <div class="form-group ">
-                                                    <label for="nom" class="control-label col-lg-2">Nombre</label>
+                                                    <label for="rfc" class="control-label col-lg-2">RFC</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="nom" name="nom" type="text">
+                                                        <input class=" form-control" id="rfc" name="rfc" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label for="dia" class="control-label col-lg-2">Descripción</label>
+                                                    <label for="rs" class="control-label col-lg-2">Razón Social</label>
                                                     <div class="col-lg-10">
-                                                        <textarea class=" form-control" id="des" name="des"></textarea>
-<!--                                                         <input class=" form-control" id="des" name="des" type="text"> -->
+                                                        <input class=" form-control" id="rs" name="rs" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label for="dia" class="control-label col-lg-2">Fecha Inicio</label>
+                                                    <label for="dir" class="control-label col-lg-2">Dirección</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="finicio" name="finicio" type="date">
+                                                        <input class=" form-control" id="dir" name="dir" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label for="dia" class="control-label col-lg-2">Fecha Termino</label>
+                                                    <label for="cp" class="control-label col-lg-2">Codigo Postal</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="ffinal" name="ffinal" type="date">
+                                                        <input class=" form-control" id="cp" name="cp" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label for="dia" class="control-label col-lg-2">Hora Inicio</label>
+                                                    <label for="tel" class="control-label col-lg-2">Telefono</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="horaini" name="horaini" type="time">
+                                                        <input class=" form-control" id="tel" name="tel" type="text">
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <label for="dia" class="control-label col-lg-2">Hora Termino</label>
+                                                    <label for="email" class="control-label col-lg-2">Correo Electrónico</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="horafin" name="horafin" type="time">
+                                                        <input class=" form-control" id="email" name="email" type="text">
                                                     </div>
                                                 </div>
-                                                <div class="form-group ">
-                                                    <label for="hora" class="control-label col-lg-2">Cupo Maximo</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control " id="cupomax" name="cupomax" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group ">
-                                                    <label for="hora" class="control-label col-lg-2">Cupos Disponibles</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control " id="cupodis" name="cupodis" type="text">
-                                                    </div>
-                                                </div>  
                                                 <div class="form-group">
-                                                  <label for="gpo" class="col-sm-2 control-label">Estado del Curso</label>
+                                                  <label for="gpo" class="col-sm-2 control-label">Estado del Proveedor</label>
                                                 <div class="col-sm-10">
                                                     <select  class="form-control" id="est" name="est" >
                                                       <option value="2">Seleccione un Estado</option>
@@ -94,7 +71,7 @@
                                             <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <button class="btn btn-success waves-effect waves-light" type="submit">Guardar</button>
-                                                        <a href="index.php/Cestacion/listahora" class="btn btn-primary">Cancelar</a>
+                                                        <a href="index.php/Cestacion/listaproveedores" class="btn btn-primary">Cancelar</a>
                                                     </div>
                                                 </div>
                                             </form>

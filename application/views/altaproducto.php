@@ -61,6 +61,30 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                  <label for="gpo" class="col-sm-2 control-label">Proveedor</label>
+                                                <div class="col-sm-10">
+<!--                                                     <select  class="form-control" id="pro" name="pro" >
+                                                        <option>Seleccione un Proveedor</option>
+                                                    <?php 
+                                                        $query = $this->db->select("idpro,nombre");
+                                                        $query = $this->db->get("proveedor");
+                                                        while($datos = mysqli_fetch_array($query))
+                                                        {
+                                                    ?>
+                                                            <option value="<?php echo $datos['idpro']?>"><?php echo $datos['nombre']?></option>
+                                                    <?php } ?>
+                                                   </select> -->
+                                                   <select class="form-control" id="pro" name="pro" >
+                                                        <option>Seleccione un Proveedor</option>
+                                                        <?php 
+                                                            foreach($proveedor as $i){
+                                                                echo '<option value"'. $i->idpro .'">'. $i->nombre .'</option>';
+                                                            }
+                                                        ?>
+                                                   </select>
+                                                </div>
+                                                </div>  
+                                                <div class="form-group">
                                                   <label for="gpo" class="col-sm-2 control-label">Estado</label>
                                                 <div class="col-sm-10">
                                                     <select  class="form-control" id="est" name="est" >
@@ -69,7 +93,7 @@
                                                       <option value="1">No Disponible</option>
                                                    </select>
                                                 </div>
-                                                </div>          
+                                                </div>        
                                             <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <button class="btn btn-success waves-effect waves-light" type="submit">Guardar</button>

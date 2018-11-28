@@ -29,11 +29,41 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group ">
+                                                    <label for="nom" class="control-label col-lg-2">Descripción</label>
+                                                    <div class="col-lg-10">
+                                                        <textarea class=" form-control" id="des" name="des"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
                                                     <label for="img" class="control-label col-lg-2">Imagen</label>
                                                     <div class="col-lg-10">
                                                         <input class="form-control " id="img" name="img" type="file">
                                                     </div>
-                                                </div>         
+                                                </div> 
+                                                <div class="form-group ">
+                                                    <label for="dia" class="control-label col-lg-2">Fecha Inicio</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="fechaini" name="fechaini" type="date">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="dia" class="control-label col-lg-2">Fecha Termino</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="fechafin" name="fechafin" type="date">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="dia" class="control-label col-lg-2">Hora Inicio</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="horaini" name="horaini" type="time">
+                                                    </div>
+                                                </div>  
+                                                <div class="form-group ">
+                                                    <label for="dia" class="control-label col-lg-2">Hora Termino</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="horafin" name="horafin" type="time">
+                                                    </div>
+                                                </div>       
                                             <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
                                                         <button class="btn btn-success waves-effect waves-light" type="submit">Guardar</button>

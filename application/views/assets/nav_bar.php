@@ -1,4 +1,4 @@
-<body class="fixed-left">
+
         
         <!-- Begin page -->
         <div id="wrapper">
@@ -51,6 +51,9 @@
                                 <a href="index.php/Cestacion/listaproductos" class="waves-effect"><i class="md md-home"></i><span> Productos</span></a>
                             </li>
                             <li>
+                                <a href="index.php/Cestacion/listaproveedores" class="waves-effect"><i class="md  md-contacts"></i><span> Proveedores</span></a>
+                            </li>
+                            <li>
                                 <a href="index.php/Cestacion/listapromo" class="waves-effect"><i class="md md-view-list"></i><span> Promociones </span></a>
                             </li>
                             <li>
@@ -61,5 +64,6 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
+            </div>
             </div>
             <!-- Left Sidebar End --> 

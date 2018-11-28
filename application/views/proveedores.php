@@ -1,3 +1,4 @@
+<?php  $est = array("","Inactivo","Activo"); ?>
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
@@ -9,54 +10,53 @@
                         <!-- Page-Title -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="pull-left page-title">Promociones</h4>
+                                <h4 class="pull-left page-title">Proveedores</h4>
                             </div>
                         </div>
-                                <a href="index.php/Cestacion/banner" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i> Crear Nuevo Horario</a>
+                        <a href="index.php/Cestacion/altaproveedor" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i>Agregar un nuevo Proveedor</a>
                         <div class="panel">
                             <div class="panel-body">
-                             <table id="promos" class="table table-striped">
+                             <table id="provee" class="table table-striped">
                                  <thead>
                                      <tr>
                                          <th></th>
+                                            <th>RFC</th>
                                             <th>Nombre</th>
-                                            <th>Descripción</th>
-                                            <th>Imagen</th>
-                                            <th>Fecha Inicio</th>
-                                            <th>Fecha Termino</th>
-                                            <th>Hora inicio</th>
-                                            <th>Hora Termino</th>
-                                            <!-- <th>Estado</th> -->
+                                            <th>Dirección</th>
+                                            <th>Codigo Postal</th>
+                                            <th>Correo Electronico</th>
+                                            <th>Telefono</th>
+                                            <th>Estatus</th>
                                          <th></th>
                                      </tr>
                                  </thead>
                              </table>
 <!--                                 <table class="table table-bordered table-striped">
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Imagen</th>
-                                        <th>Fecha Inicial</th>
-                                        <th>Fecha Termino</th>
-                                        <th>Hora Inicio</th>
-                                        <th>Hora Termino</th>
+                                        <th>RFC</th>
+                                        <th>Razón Socíal</th>
+                                        <th>Dirección</th>
+                                        <th>Codigo Postal</th>
+                                        <th>Correo Electronico</th>
+                                        <th>Telefono</th>
+                                        <th>Estado</th>
                                     </tr>
                                         <?php
-                                            for($i=0;$i<count($promociones);$i++){  ?>
+                                            for($i=0;$i<count($proveedor);$i++){  ?>
                                                 <tr>
-                                                    <td><?php echo $promociones[$i]['Nombre']; ?></td>
-                                                    <td><?php echo $promociones[$i]['descripcion']; ?></td>
-                                                     <td><img  class ="img-responsive img-thumbnail" src="<?php echo 'images/'.$promociones[$i]['Imagen']?>" style='width: 75px; height: 75px;margin:10px auto;display:block;'></td>
-                                                    <td><?php echo $promociones[$i]['fechaini']; ?></td>
-                                                    <td><?php echo $promociones[$i]['fechafin']; ?></td>
-                                                    <td><?php echo $promociones[$i]['horaini']; ?></td>
-                                                    <td><?php echo $promociones[$i]['horafin']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['rfc']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['nombre']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['direccion']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['cp']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['email']; ?></td>
+                                                    <td><?php echo $proveedor[$i]['tel']; ?></td>
+                                                    <td><?php echo $est[$proveedor[$i]['estado']]; ?></td>
                                                     <td>
-                                                        <a href="index.php/Cestacion/editpromo/<?php echo $promociones[$i]['IdPromo']; ?> "><span title="Modificar Promoción" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
+                                                        <a href="index.php/Cestacion/editproveedor/<?php echo $proveedor[$i]['idpro']; ?> "><span title="Modificar Proveedor" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
                                                      </td> 
                                                      <td>
-                                                        <a onclick="abre_modal($(this).attr('data-promociones'),$(this).attr('data'));" data-promociones="<?php echo $promociones[$i]['Nombre'] ?>" data="index.php/Cestacion/deletepromos/<?php echo $promociones[$i]['IdPromo'] ?>">
-                                                        <span title="Eliminar Promoción" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                        <a onclick="abre_modal($(this).attr('data-proveedor'),$(this).attr('data'));" data-articulos="<?php echo $proveedor[$i]['nombre'] ?>" data="index.php/Cestacion/deleteproveedor/<?php echo $proveedor[$i]['idpro'] ?>">
+                                                        <span title="Eliminar Proveedor" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                                         </a>                
                                                      </td>           
                                                 </tr>
@@ -79,11 +79,11 @@
                                 <h4 class="modal-title" id="myModalLabel"></h4>
                             </div>
                         <div class="modal-body">
-                                ¿Estas seguro de borra este Producto?
+                                ¿Estas seguro de borrar este Proveedor?
                         </div>
                         <div class="modal-footer">
                                 <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                <a id="borra" type="button" class="btn btn-primary" onclick="borrar(this)">Eliminar Producto</a>
+                                <a id="borra" type="button" class="btn btn-primary" onclick="borrar(this)">Eliminar Proveedor</a>
                         </div>
                         </div>
                     </div>

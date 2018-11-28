@@ -51,10 +51,28 @@
                                      <input type="text" class="form-control" id="ffinal" name="ffinal" value="<?php echo $cursos['ffinal_curso'] ?>">
                                   </div>
                                 </div>
+                                <div class="form-group ">
+                                    <label for="dia" class="control-label col-lg-2">Hora Inicio</label>
+                                    <div class="col-lg-10">
+                                        <input class=" form-control" id="hora" name="hora" type="time" value="<?php echo $cursos['horaini'] ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="dia" class="control-label col-lg-2">Hora Termino</label>
+                                    <div class="col-lg-10">
+                                        <input class=" form-control" id="hora" name="hora" type="time" value="<?php echo $cursos['horafin'] ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="hora" class="col-sm-2 control-label">Cupo Maximo</label>
+                                  <div class="col-sm-10">
+                                     <input type="text" class="form-control" id="cupos" name="cupos" value="<?php echo $cursos['cupomax'] ?>">
+                                  </div>
+                                </div>
                                 <div class="form-group">
                                   <label for="hora" class="col-sm-2 control-label">Cupos Disponibles</label>
                                   <div class="col-sm-10">
-                                     <input type="text" class="form-control" id="cupos" name="cupos" value="<?php echo $cursos['cupos_curso'] ?>">
+                                     <input type="text" class="form-control" id="cupos" name="cupos" value="<?php echo $cursos['cupodis'] ?>">
                                   </div>
                                 </div>
                                 <div class="form-group">
@@ -62,9 +80,9 @@
                                 <div class="col-sm-10">
 <!--                                   <?php echo 'Estado: '.$cursos['Estado'] ?> -->
                                     <select  class="form-control" id="est" name="est" >
-                                      <option value="0" <?php if($cursos['estado']==2) echo 'selected=true' ?>>Seleccione un Estado</option>
-                                      <option value="0" <?php if($cursos['estado']==0) echo 'selected=true' ?>>Inactivo</option>
-                                      <option value="1" <?php if($cursos['estado']==1) echo 'selected=true' ?> >Activo</option>
+                                      <option value="0">Seleccione un Estado</option>
+                                      <option value="1" <?php if($cursos['estado']==1) echo 'selected=true' ?>>Inactivo</option>
+                                      <option value="2" <?php if($cursos['estado']==2) echo 'selected=true' ?> >Activo</option>
                                    </select>
                                 </div>
                                 </div>

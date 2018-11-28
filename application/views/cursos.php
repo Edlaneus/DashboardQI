@@ -1,3 +1,5 @@
+<?php  $est = array("","Inactivo","Activo"); ?>
+
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
@@ -8,22 +10,47 @@
 
                         <!-- Page-Title -->
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-16">
                                 <h4 class="pull-left page-title">Cursos</h4>
                             </div>
                         </div>
                         <a href="index.php/Cestacion/cursos" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i> Crear Nuevo Curso</a>
                         <div class="panel">
                             <div class="panel-body">
+<!--                         <div class="row">
+                            <div class="col-12"> -->
+                             <table id="cursos" class="table table-striped">
+                                 <thead>
+                                     <tr>
+                                         <th></th>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Fecha Inicio</th>
+                                            <th>Fecha Termino</th>
+                                            <th>Hora inicio</th>
+                                            <th>Hora Termino</th>
+                                            <th>Cupo Maximo</th>
+                                            <th>Cupo Disponible</th>
+                                            <th>Estado</th>
+                                         <th></th>
+                                     </tr>
+                                 </thead>
+                             </table>
+<!--                             </div>
+                        </div> -->
 
-                                <table class="table table-bordered table-striped">
+
+<!--                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Fecha Inicio</th>
                                         <th>Fecha Termino</th>
-                                        <th>Hora</th>
-                                        <th>Cupos Disponibles</th>
+                                        <th>Hora Inicial</th>
+                                        <th>Hora Termino</th>
+                                        <th>Cupo Maximo</th>
+                                        <th>Cupos Disponible</th>
+                                        <th>Estado</th>
                                     </tr>
                                         <?php
                                             for($i=0;$i<count($cursos);$i++){  ?>
@@ -32,8 +59,11 @@
                                                     <td><?php echo $cursos[$i]['descripcion_curso']; ?></td>
                                                     <td><?php echo $cursos[$i]['finicio_curso']; ?></td>
                                                     <td><?php echo $cursos[$i]['ffinal_curso']; ?></td>
-                                                    <td><?php echo $cursos[$i]['hora']; ?></td>
-                                                    <td><?php echo $cursos[$i]['cupos_curso']; ?></td>
+                                                    <td><?php echo $cursos[$i]['horaini']; ?></td>
+                                                    <td><?php echo $cursos[$i]['horafin']; ?></td>
+                                                    <td><?php echo $cursos[$i]['cupomax']; ?></td>
+                                                    <td><?php echo $cursos[$i]['cupodis']; ?></td>
+                                                    <td><?php echo $est[$cursos[$i]['estado']]; ?></td>
                                                     <td>
                                                         <a href="index.php/Cestacion/editcurso/<?php echo $cursos[$i]['id_curso']; ?> "><span title="Modificar Curso" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
                                                      </td> 
@@ -44,7 +74,7 @@
                                                      </td>           
                                                 </tr>
                                         <?php }  ?>           
-                                </table>
+                                </table> -->
                             </div>
                             <!-- end: page -->
 

@@ -11,10 +11,11 @@ class Cestacion extends CI_Controller {
 
 	public function index()
 	{
-				$this->load->view('assets/header');
-				$this->load->view('assets/nav_bar');
-				$this->load->view('altaproducto');
-				$this->load->view('assets/footer');
+		$datos['articulos'] = $this->mdash->getproductos();
+		    $this->load->view('assets/header');
+			$this->load->view('assets/nav_bar');
+			$this->load->view('Productos',$datos); 
+			$this->load->view('assets/footer'); 
 		//$this->load->view('login');
 	}
 
@@ -113,8 +114,7 @@ class Cestacion extends CI_Controller {
 		$this->load->view('assets/footer');
 	}
 
-	function altes(){
-
+	function altes(){				
 				$this->load->view('assets/header');
 				$this->load->view('assets/nav_bar');
 				$this->load->view('altaproducto');
@@ -126,6 +126,7 @@ class Cestacion extends CI_Controller {
 		$this->form_validation->set_rules('idcat', 'IdCategoria', 'required');
 		$this->form_validation->set_rules('precio', 'Precio', 'required');
 		$this->form_validation->set_rules('img', 'imagen', 'required');
+		$this->form_validation->set_rules('pro', 'proveedor', 'required');
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -142,6 +143,7 @@ class Cestacion extends CI_Controller {
 			$datos['Precio']=$this->input->post("precio");
 			$datos['Descripción']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['proveedor']=$this->input->post("pro");
 			$datos['estado']=$this->input->post("est");
 			
 			move_uploaded_file($_FILES['$img']['tmp_name'], 'images/'.$_FILES['$img']['name']);
@@ -155,12 +157,19 @@ class Cestacion extends CI_Controller {
 	}
 
 	function listaproductos(){
-		$datos['articulos'] = $this->mdash->getproductos();
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('Productos',$datos); 
+			$this->load->view('Productos'); 
 			$this->load->view('assets/footer');  
-	}	
+	}
+
+	function getprod(){
+		$datos= $this->mdash->getproductos();
+
+
+		$res['data'] = $datos;
+    	echo json_encode($res); 
+	}		
 	
 	function editproducto($id){
 		$datos['articulos'] = $this->mdash->getproducto($id);
@@ -178,6 +187,7 @@ class Cestacion extends CI_Controller {
 			$datos['Precio']=$this->input->post("precio");
 			$datos['Descripción']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['proveedor']=$this->input->post("pro");
 			$datos['estado']=$this->input->post("est");
 
 	    $this->mdash->updateproducto($datos,$id);    	
@@ -188,11 +198,12 @@ class Cestacion extends CI_Controller {
 	    $this->mdash->delproducto($id);	
 	    $this->listaproductos();		
 	}
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
 
-//Funciones de Promociones
+
+//---------------------------------------------------------------------------------
+	//*--------------------- Funciones Promociones ----------------------------*//
+//---------------------------------------------------------------------------------
+
 	function banner(){
 
 				$this->load->view('assets/header');
@@ -216,7 +227,12 @@ class Cestacion extends CI_Controller {
         else
         {
 			$datos['Nombre']=$this->input->post("nom");
+			$datos['descripcion']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['fechaini']=$this->input->post("fechaini");
+			$datos['fechafin']=$this->input->post("fechafin");
+			$datos['horaini']=$this->input->post("horaini");
+			$datos['horafin']=$this->input->post("horafin");
 			
 
 		    $this->mdash->agregapromo($datos);
@@ -228,13 +244,27 @@ class Cestacion extends CI_Controller {
 	}
 
 	function listapromo(){
-		$datos['promociones'] = $this->mdash->getpromos();
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('verpromo',$datos); 
+			$this->load->view('verpromo'); 
 			$this->load->view('assets/footer');  
 	}	
 	
+	function getpromociones(){
+		$datos= $this->mdash->getpromos();
+		foreach ($datos as $row) {
+		$Imagen = '';
+		if($row["Imagen"] != '')
+		{
+			$Imagen = '<img src="images/'.$row['Imagen'].'" class ="img-responsive img-thumbnail" width:"75" height:"75" />';
+		}			
+		}
+
+
+
+		$res['data'] = $datos;
+    	echo json_encode($res); 
+	}
 	function editpromo($id){
 		$datos['promociones'] = $this->mdash->getpromo($id);
 		    $this->load->view('assets/header');
@@ -247,7 +277,12 @@ class Cestacion extends CI_Controller {
     function actualizapromos(){
         	$id = $this->input->post("IdPromo"); 
 			$datos['Nombre']=$this->input->post("name");
+			$datos['descripcion']=$this->input->post("des");
 			$datos['imagen']=$this->input->post("img");
+			$datos['fechaini']=$this->input->post("fechaini");
+			$datos['fechafin']=$this->input->post("fechafin");
+			$datos['horaini']=$this->input->post("horaini");
+			$datos['horafin']=$this->input->post("horafin");
 
 	    $this->mdash->updatepromo($datos,$id);    	
 	    $this->listapromo();
@@ -257,10 +292,12 @@ class Cestacion extends CI_Controller {
 	    $this->mdash->delpromo($id);	
 	    $this->listapromo();		
 	}  
-//----------------------------------------------------------------------------------------------------------------------------	
-//----------------------------------------------------------------------------------------------------------------------------	
-//----------------------------------------------------------------------------------------------------------------------------
-//Funciones de Cursos
+
+
+//---------------------------------------------------------------------------------
+	//*--------------------- Funciones Cursos ----------------------------*//
+//---------------------------------------------------------------------------------
+
 	function cursos(){
 
 				$this->load->view('assets/header');
@@ -292,8 +329,10 @@ class Cestacion extends CI_Controller {
 			$datos['descripcion_curso']=$this->input->post("des");
 			$datos['finicio_curso']=$this->input->post("finicio");
 			$datos['ffinal_curso']=$this->input->post("ffinal");
-			$datos['hora']=$this->input->post("hora");
-			$datos['cupos_curso']=$this->input->post("cupos");
+			$datos['horaini']=$this->input->post("horaini");
+			$datos['horafin']=$this->input->post("horafin");
+			$datos['cupomax']=$this->input->post("cupomax");
+			$datos['cupodis']=$this->input->post("cupodis");
 			$datos['estado']=$this->input->post('est');
 			
 
@@ -306,12 +345,22 @@ class Cestacion extends CI_Controller {
 	}
 
 	function listacursos(){
-		$datos['cursos'] = $this->mdash->getcursos();
+	
 		    $this->load->view('assets/header');
 			$this->load->view('assets/nav_bar');
-			$this->load->view('cursos',$datos); 
-			$this->load->view('assets/footer');  
-	}	
+			$this->load->view('cursos'); 
+			$this->load->view('assets/footer');
+	}
+
+	function getcursos(){
+		$datos= $this->mdash->getcursos();
+
+
+		$res['data'] = $datos;
+    	echo json_encode($res); 
+	}
+
+
 	
 	function editcurso($id){
 		$datos['cursos'] = $this->mdash->getcurso($id);
@@ -328,7 +377,10 @@ class Cestacion extends CI_Controller {
 			$datos['descripcion_curso']=$this->input->post("des");
 			$datos['finicio_curso']=$this->input->post("finicio");
 			$datos['ffinal_curso']=$this->input->post("ffinal");
-			$datos['cupos_curso']=$this->input->post("cupos");
+			$datos['horaini']=$this->input->post("horaini");
+			$datos['horafin']=$this->input->post("horafin");
+			$datos['cupomax']=$this->input->post("cupomax");
+			$datos['cupodis']=$this->input->post("cupodis");
 			$datos['estado']=$this->input->post("est");
 
 	    $this->mdash->updatecurso($datos,$id_curso);    	
@@ -339,5 +391,98 @@ class Cestacion extends CI_Controller {
 	    $this->mdash->delcurso($id);	
 	    $this->listacursos();		
 	}
+
+
+//---------------------------------------------------------------------------------
+	//*--------------------- Funciones Proveedor ----------------------------*//
+//---------------------------------------------------------------------------------
+
+	function listaproveedores(){
+		    $this->load->view('assets/header');
+			$this->load->view('assets/nav_bar');
+			$this->load->view('proveedores'); 
+			$this->load->view('assets/footer');  
+	}
+
+	function getprovee(){
+		$datos= $this->mdash->getproveedor();
+
+
+		$res['data'] = $datos;
+    	echo json_encode($res); 
+	}
+
+	function altaproveedor(){
+
+				$this->load->view('assets/header');
+				$this->load->view('assets/nav_bar');
+				$this->load->view('altaproveedor');
+				$this->load->view('assets/footer');  
+	}
+
+
+	function addproveedor(){
+		$this->form_validation->set_rules('rfc', 'rfc', 'required');
+		$this->form_validation->set_rules('rs', 'nombre', 'required');
+		$this->form_validation->set_rules('dir', 'direccion', 'required');
+		$this->form_validation->set_rules('cp', 'cp', 'required');
+		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('tel', 'tel', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+                		 
+		    $this->load->view('assets/header');
+			$this->load->view('assets/nav_bar');
+			$this->load->view('altaproveedor');
+			$this->load->view('assets/footer');  
+        }
+        else
+        {
+			$datos['rfc']=$this->input->post("rfc");
+			$datos['nombre']=$this->input->post("rs");
+			$datos['direccion']=$this->input->post("dir");
+			$datos['cp']=$this->input->post("cp");
+			$datos['email']=$this->input->post("email");
+			$datos['tel']=$this->input->post("tel");
+			$datos['estado']=$this->input->post('est');
+			
+
+		    $this->mdash->agregaproveedor($datos);
+		    $this->load->view('assets/header');
+			$this->load->view('assets/nav_bar');
+			$this->load->view('proveedores');
+			$this->load->view('assets/footer');  
+	    }
+	}
+	
+	function editproveedor($id){
+		$datos['proveedor'] = $this->mdash->getpro($id);
+		    $this->load->view('assets/header');
+			$this->load->view('assets/nav_bar');
+			$this->load->view('editproveedor',$datos); 
+			$this->load->view('assets/footer'); 
+      
+	}	
+
+    function actualizaproveedor(){
+        	$idpro = $this->input->post("idpro"); 
+			$datos['rfc']=$this->input->post("rfc");
+			$datos['nombre']=$this->input->post("rs");
+			$datos['direccion']=$this->input->post("dir");
+			$datos['cp']=$this->input->post("cp");
+			$datos['email']=$this->input->post("email");
+			$datos['tel']=$this->input->post("tel");
+			$datos['estado']=$this->input->post("est");
+
+	    $this->mdash->updatepro($datos,$idpro);    	
+	    $this->listaproveedores();
+    }
+    
+	function deleteproveedor($id){
+	    $this->mdash->delpro($id);	
+	    $this->listaproveedores();		
+	}
+
 
 }

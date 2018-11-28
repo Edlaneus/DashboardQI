@@ -1,6 +1,7 @@
 <?php  $gpo = array("","Arte","Arquitectura","Ilustraccion","Diseño","Basico"); ?>
 <?php  $est = array("","No Disponible","Disponible"); ?>
 
+
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->                      
@@ -51,13 +52,29 @@
                         <a href="index.php/Cestacion/altes" class="btn btn-lg btn-success btn-block waves-effect waves-light "><i class="fa fa-plus"></i>Agregar un nuevo Producto</a>
                         <div class="panel">
                             <div class="panel-body">
-                                <table class="table table-bordered table-striped">
+                             <table id="productos" class="table table-striped">
+                                 <thead>
+                                     <tr>
+                                         <th></th>
+                                            <th>Nombre</th>
+                                            <th>Categoria</th>
+                                            <th>Precio</th>
+                                            <th>Descripción</th>
+                                            <th>imagen</th>
+                                            <th>Proveedor</th>
+                                            <th>Estatus</th>
+                                         <th></th>
+                                     </tr>
+                                 </thead>
+                             </table>
+ <!--                                <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Categoria</th>
                                         <th>Precio</th>
                                         <th>Descripción</th>
                                         <th>Imagen</th>
+                                        <th>Proveedor</th>
                                         <th>Estado</th>
                                     </tr>
                                         <?php
@@ -65,9 +82,15 @@
                                                 <tr>
                                                     <td><?php echo $articulos[$i]['Nombre']; ?></td>
                                                     <td><?php echo $gpo[$articulos[$i]['IdCategoria']]; ?></td>
-                                                    <td><?php echo $articulos[$i]['Precio']; ?></td>
+                                                    <?php
+                                                       $pre = $articulos[$i]['Precio'];
+                                                       $pre = number_format($pre,2,'.',',');
+                                                       $idArt =$articulos[$i]['idArticulo']; 
+                                                    ?>
+                                                    <td><?php echo '$'.$pre ?></td>
                                                     <td><?php echo $articulos[$i]['Descripción']; ?></td>
                                                     <td><img  class ="img-responsive img-thumbnail" src="<?php echo 'images/'.$articulos[$i]['imagen']?>" style='width: 75px; height: 75px;margin:10px auto;display:block;'></td>
+                                                    <td><?php echo $articulos[$i]['proveedor']; ?></td>
                                                     <td><?php echo $est[$articulos[$i]['estado']]; ?></td>
                                                     <td>
                                                         <a href="index.php/Cestacion/editproducto/<?php echo $articulos[$i]['idArticulo']; ?> "><span title="Modificar Producto" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
@@ -79,7 +102,7 @@
                                                      </td>           
                                                 </tr>
                                         <?php }  ?>           
-                                </table>
+                                </table> -->
                             </div>
                             <!-- end: page -->
 

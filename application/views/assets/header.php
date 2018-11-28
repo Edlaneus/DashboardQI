@@ -33,6 +33,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-
         <script src="js/modernizr.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="DataTables/css/jquery.dataTables.min.css">
+
+        
+
+    <!-- https://code.jquery.com/jquery-3.3.1.js -->
+
   </head>
+  <body class="fixed-left">
